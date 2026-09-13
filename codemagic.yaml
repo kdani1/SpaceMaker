@@ -1,0 +1,49 @@
+workflows:
+  ios-testflight:
+    name: SpaceMaker - internal TestFlight
+    instance_type: mac_mini_m2
+    max_build_duration: 60
+    integrations:
+      app_store_connect: Pocket Codex Codemagic
+    environment:
+      vars:
+        APP_STORE_APPLE_ID: "6811652076"
+      xcode: "26.0"
+      flutter: "3.44.0"
+      node: latest
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: app.spacemaker.swipe
+    scripts:
+      - name: Validate app configuration and tests
+        script: |
+          set -euo pipefail
+          test -n "$APP_STORE_APPLE_ID"
+          flutter pub get --enforce-lockfile
+          flutter analyze
+          flutter test
+          node --test tool/project.test.mjs
+          python3 tools/test_testflight_release.py
+      - name: Allocate unique Apple build number
+        script: python3 tools/testflight-release.py number --app-id "$APP_STORE_APPLE_ID"
+      - name: Prepare, sign and archive the Flutter application
+        script: |
+          set -euo pipefail
+          flutter build ios --config-only --release --no-codesign \
+            --build-number="$IOS_BUILD_NUMBER" \
+            --dart-define-from-file=config/monetization.example.json
+          xcode-project use-profiles --custom-export-options='{"testFlightInternalTestingOnly": true}'
+          flutter build ipa --release --build-number="$IOS_BUILD_NUMBER" \
+            --dart-define-from-file=config/monetization.example.json \
+            --export-options-plist="$HOME/export_options.plist"
+      - name: Upload once to internal TestFlight
+        script: |
+          set -euo pipefail
+          ipa=(build/ios/ipa/*.ipa)
+          test "${#ipa[@]}" -eq 1
+          test -f "${ipa[0]}"
+          python3 tools/testflight-release.py upload --app-id "$APP_STORE_APPLE_ID" --ipa "${ipa[0]}"
+    artifacts:
+      - build/ios/ipa/*.ipa
+      - build/ios/archive/*.xcarchive/dSYMs/*.dSYM
+      - /tmp/xcodebuild_logs/*.log
