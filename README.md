@@ -1,28 +1,46 @@
 # SpaceMaker
 
-**SpaceMaker: Swipe left for storage**
+A device-first Flutter photo/video cleaner for Android and iOS. No custom backend, login, password, server address, APK host, or local fake purchase activation.
 
-Tinder-style photo and video cleaner for Android and iOS. Swipe left to trash, swipe right to keep. Filter by size, type, and age.
+## Cleaning and monetization
 
-Photos stay on the phone. The local backend only stores accounts and the Plus flag.
+- First **20 swipes** are free and ad-free. Both directions count; undo does not refund usage.
+- Then choose **monthly Pro** (unlimited, no ads) or **Continue with ads** (free, no card).
+- Ad-supported cleaning has an explicit break between each further batch of 10 swipes. Offline/no-fill does not block cleaning. Privacy choices are separate from choosing the free plan.
+- Google AdMob + UMP privacy flow; test ad IDs in development, no production IDs embedded.
+- RevenueCat validates App Store / Google Play purchases; signed entitlement response checked, restore supported, expiry/revocation handled. No locally stored paid flag.
+- Localized monthly prices come from the store, not from phone language or hardcoded estimates.
+- Media stays on-device. Purchases and ads contact their managed services; this is **not** a promise of zero network traffic.
+- Mark for trash, review, undo, then explicitly confirm deletion. Recovery depends on platform/provider.
 
-## Test user
+The Flutter project is now at repository root (previously `app/`) so the on-phone builder can detect `pubspec.yaml`. The obsolete `backend/`, `host/` and Windows server launcher were removed.
 
-| | Email | Password | Plan |
-| --- | --- | --- | --- |
-| Plus | `test@spacemaker.app` | `SpaceMaker1!` | Yearly Plus |
-| Free | `demo@spacemaker.app` | `SpaceMaker1!` | 20 free empties |
+## Current verification
 
-## Run locally
+Pub dependency resolution succeeded. The on-phone APK build is **blocked** by its native SDK, not replaced with mock ads:
 
-1. Start API: `.\start-backend.ps1` (port 8790)
-2. Start APK host: `dotnet run --project host --urls http://0.0.0.0:8792`
-3. Phone download: `http://192.168.0.249:8792/spacemaker.apk`
-4. In the app, server URL: `http://192.168.0.249:8790`
+```
+google_mobile_ads: Android dependency is not in the native SDK:
+com.google.android.libraries.ads.mobile.sdk:ads-mobile-sdk:1.3.1
+```
 
-## Name
+No new APK or iOS archive has been produced. Use a full Flutter + Android SDK / macOS Xcode environment for native builds. See [verification](docs/VERIFICATION.md) for the final source-check results and unrun device tests.
 
-Store title: `SpaceMaker: Swipe left for storage`  
-Package: `app.spacemaker.swipe`
+## Run / publish
 
-This is a local test build. Before a store release, run a lawyer-grade trademark search. `Space Maker Method` is a different decluttering-course app. `SPACEMAKER` also appears on some hardware marks (tablets / appliances), which is a different class than this photo utility.
+See [release checklist](docs/RELEASE.md). Configure your own store products, RevenueCat project, AdMob apps, published legal pages and signing before selling anything. Without configuration the app does not fake a purchase or a store price; free cleaning remains available.
+
+- [Havi árterv magyarul – 50 piac + további támogatott piacok](docs/ARAZAS.md)
+- [Machine-readable pricing proposal](config/regional-pricing.json)
+- [Example build configuration](config/monetization.example.json)
+
+In a full Flutter environment:
+
+```sh
+flutter pub get
+flutter analyze
+flutter test
+flutter run --dart-define-from-file=config/monetization.example.json
+```
+
+Runtime interface remains English, matching the previous app. Prices are localized by the store. Additional UI translations and actual Android/iOS usability checks remain release work.

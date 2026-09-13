@@ -1,0 +1,320 @@
+{
+  "status": "proposal_not_published",
+  "reviewedAt": "2026-09-13",
+  "product": {
+    "ios": "spacemaker_pro_monthly",
+    "android": "spacemaker_pro",
+    "androidBasePlan": "monthly",
+    "period": "P1M",
+    "revenueCatEntitlement": "pro",
+    "revenueCatPackage": "$rc_monthly"
+  },
+  "defaultForOtherSupportedMarkets": {
+    "baseTerritory": "US",
+    "currency": "USD",
+    "amount": 3.99,
+    "method": "Store-console localized equivalent; nearest supported price point. Review availability and purchasing power before enabling each territory."
+  },
+  "overrides": [
+    {
+      "territory": "US",
+      "market": "USA",
+      "currency": "USD",
+      "amount": 3.99
+    },
+    {
+      "territory": "GB",
+      "market": "United Kingdom",
+      "currency": "GBP",
+      "amount": 2.99
+    },
+    {
+      "territory": "CA",
+      "market": "Canada",
+      "currency": "CAD",
+      "amount": 4.99
+    },
+    {
+      "territory": "AU",
+      "market": "Australia",
+      "currency": "AUD",
+      "amount": 5.99
+    },
+    {
+      "territory": "DE",
+      "market": "Germany",
+      "currency": "EUR",
+      "amount": 3.99
+    },
+    {
+      "territory": "FR",
+      "market": "France",
+      "currency": "EUR",
+      "amount": 3.99
+    },
+    {
+      "territory": "IT",
+      "market": "Italy",
+      "currency": "EUR",
+      "amount": 3.99
+    },
+    {
+      "territory": "ES",
+      "market": "Spain",
+      "currency": "EUR",
+      "amount": 3.99
+    },
+    {
+      "territory": "NL",
+      "market": "Netherlands",
+      "currency": "EUR",
+      "amount": 3.99
+    },
+    {
+      "territory": "JP",
+      "market": "Japan",
+      "currency": "JPY",
+      "amount": 480
+    },
+    {
+      "territory": "KR",
+      "market": "South Korea",
+      "currency": "KRW",
+      "amount": 4900
+    },
+    {
+      "territory": "CH",
+      "market": "Switzerland",
+      "currency": "CHF",
+      "amount": 3.9
+    },
+    {
+      "territory": "AT",
+      "market": "Austria",
+      "currency": "EUR",
+      "amount": 3.99
+    },
+    {
+      "territory": "BE",
+      "market": "Belgium",
+      "currency": "EUR",
+      "amount": 3.99
+    },
+    {
+      "territory": "IE",
+      "market": "Ireland",
+      "currency": "EUR",
+      "amount": 3.99
+    },
+    {
+      "territory": "PT",
+      "market": "Portugal",
+      "currency": "EUR",
+      "amount": 2.99
+    },
+    {
+      "territory": "FI",
+      "market": "Finland",
+      "currency": "EUR",
+      "amount": 3.99
+    },
+    {
+      "territory": "GR",
+      "market": "Greece",
+      "currency": "EUR",
+      "amount": 2.99
+    },
+    {
+      "territory": "SE",
+      "market": "Sweden",
+      "currency": "SEK",
+      "amount": 39
+    },
+    {
+      "territory": "NO",
+      "market": "Norway",
+      "currency": "NOK",
+      "amount": 39
+    },
+    {
+      "territory": "DK",
+      "market": "Denmark",
+      "currency": "DKK",
+      "amount": 29
+    },
+    {
+      "territory": "NZ",
+      "market": "New Zealand",
+      "currency": "NZD",
+      "amount": 6.99
+    },
+    {
+      "territory": "SG",
+      "market": "Singapore",
+      "currency": "SGD",
+      "amount": 4.98
+    },
+    {
+      "territory": "HK",
+      "market": "Hong Kong",
+      "currency": "HKD",
+      "amount": 28
+    },
+    {
+      "territory": "TW",
+      "market": "Taiwan",
+      "currency": "TWD",
+      "amount": 90
+    },
+    {
+      "territory": "AE",
+      "market": "UAE",
+      "currency": "AED",
+      "amount": 12.99
+    },
+    {
+      "territory": "SA",
+      "market": "Saudi Arabia",
+      "currency": "SAR",
+      "amount": 12.99
+    },
+    {
+      "territory": "IL",
+      "market": "Israel",
+      "currency": "ILS",
+      "amount": 12.9
+    },
+    {
+      "territory": "HU",
+      "market": "Hungary",
+      "currency": "HUF",
+      "amount": 990
+    },
+    {
+      "territory": "PL",
+      "market": "Poland",
+      "currency": "PLN",
+      "amount": 12.99
+    },
+    {
+      "territory": "CZ",
+      "market": "Czechia",
+      "currency": "CZK",
+      "amount": 79
+    },
+    {
+      "territory": "RO",
+      "market": "Romania",
+      "currency": "RON",
+      "amount": 14.99
+    },
+    {
+      "territory": "SK",
+      "market": "Slovakia",
+      "currency": "EUR",
+      "amount": 2.99
+    },
+    {
+      "territory": "HR",
+      "market": "Croatia",
+      "currency": "EUR",
+      "amount": 2.99
+    },
+    {
+      "territory": "BR",
+      "market": "Brazil",
+      "currency": "BRL",
+      "amount": 9.9
+    },
+    {
+      "territory": "MX",
+      "market": "Mexico",
+      "currency": "MXN",
+      "amount": 39
+    },
+    {
+      "territory": "CL",
+      "market": "Chile",
+      "currency": "CLP",
+      "amount": 1990
+    },
+    {
+      "territory": "CO",
+      "market": "Colombia",
+      "currency": "COP",
+      "amount": 7900
+    },
+    {
+      "territory": "PE",
+      "market": "Peru",
+      "currency": "PEN",
+      "amount": 6.9
+    },
+    {
+      "territory": "IN",
+      "market": "India",
+      "currency": "INR",
+      "amount": 99
+    },
+    {
+      "territory": "ID",
+      "market": "Indonesia",
+      "currency": "IDR",
+      "amount": 19000
+    },
+    {
+      "territory": "PH",
+      "market": "Philippines",
+      "currency": "PHP",
+      "amount": 79
+    },
+    {
+      "territory": "TH",
+      "market": "Thailand",
+      "currency": "THB",
+      "amount": 59
+    },
+    {
+      "territory": "MY",
+      "market": "Malaysia",
+      "currency": "MYR",
+      "amount": 6.9
+    },
+    {
+      "territory": "VN",
+      "market": "Vietnam",
+      "currency": "VND",
+      "amount": 29000
+    },
+    {
+      "territory": "TR",
+      "market": "Türkiye",
+      "currency": "TRY",
+      "amount": 79.99
+    },
+    {
+      "territory": "ZA",
+      "market": "South Africa",
+      "currency": "ZAR",
+      "amount": 29.99
+    },
+    {
+      "territory": "EG",
+      "market": "Egypt",
+      "currency": "EGP",
+      "amount": 59.99
+    },
+    {
+      "territory": "PK",
+      "market": "Pakistan",
+      "currency": "PKR",
+      "amount": 299
+    },
+    {
+      "territory": "BD",
+      "market": "Bangladesh",
+      "currency": "BDT",
+      "amount": 149
+    }
+  ]
+}

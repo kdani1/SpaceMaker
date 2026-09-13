@@ -27,3 +27,8 @@ ios/.symlinks/
 .tools/
 host-out/
 dist/
+coverage/
+config/monetization.json
+*.jks
+*.keystore
+android/key.properties
